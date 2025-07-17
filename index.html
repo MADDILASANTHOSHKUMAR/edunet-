@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maddila Santhosh Kumar - Portfolio</title>
+  <style>
+    body {
+      background-color: #1f1f1f;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .welcome {
+      text-align: center;
+      background-color: #2a2a2a;
+      color: #ff8c00; /* Orange text */
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      position: relative;
+      z-index: 10;
+      opacity: 0;
+      transform: scale(0.95);
+      animation: fadeInScale 0.8s ease-out forwards;
+      border-bottom: 1px solid #444;
+    }
+
+    .navcont {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 20px auto;
+      position: relative;
+      z-index: 10;
+      gap: 20px;
+    }
+
+    .navbar {
+      width: 200px;
+      background-color: #2a2a2a;
+      border-radius: 8px;
+      position: relative;
+      z-index: 10;
+      padding: 10px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .navbar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .navbar a {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #e0e0e0;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .navbar a:hover {
+      background-color: #333;
+      color: #ff8c00; /* Orange on hover */
+    }
+
+    .navbar a.active {
+      background-color: #333;
+      color: #ff8c00; /* Orange for active */
+      border-left: 3px solid #ff8c00; /* Orange border */
+      font-weight: 500;
+    }
+
+    .content {
+      flex: 1;
+      padding: 25px;
+      background-color: #2a2a2a;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 10;
+    }
+
+    section {
+      display: none;
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section.active {
+      display: block;
+    }
+
+    h2, h3, h4 {
+      color: #ff8c00; /* Orange headings */
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #444;
+    }
+
+    h2 {
+      font-size: 28px;
+    }
+
+    h3 {
+      font-size: 22px;
+      margin-top: 25px;
+    }
+
+    h4 {
+      font-size: 18px;
+      color: #ff8c00; /* Orange subheadings */
+      border-bottom: none;
+    }
+
+    p, li {
+      margin-bottom: 15px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .project {
+      background-color: #333;
+      padding: 20px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      transition: transform 0.2s, box-shadow 0.3s;
+      border-left: 3px solid #ff8c00; /* Orange accent */
+    }
+
+    .project:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .resume-container {
+      display: flex;
+      gap: 30px;
+    }
+
+    .resume-photo img {
+      width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      border: 1px solid #444;
+    }
+
+    .contact-links a {
+      color: #ff8c00; /* Orange links */
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-links a:hover {
+      color: #ffa500; /* Lighter orange on hover */
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #2a2a2a;
+      color: #e0e0e0;
+      margin-top: 30px;
+      border-top: 1px solid #444;
+    }
+
+    @media (max-width: 768px) {
+      .navcont {
+        flex-direction: column;
+      }
+      .navbar {
+        width: 100%;
+      }
+      .resume-container {
+        flex-direction: column;
+      }
+      .resume-photo img {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+        display: block;
+      }
+    }
+
+    /* Highlight animation for active section */
+    @keyframes highlight {
+      0% { background-color: rgba(255, 140, 0, 0.1); }
+      100% { background-color: transparent; }
+    }
+
+    section.active {
+      animation: fadeIn 0.5s ease-out forwards, highlight 1.5s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="welcome">Maddila Santhosh Kumar - Portfolio</div>
+  
+  <div class="navcont">
+    <div class="navbar">
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <!-- Home -->
+      <section id="home" class="active">
+        <h2>Welcome</h2>
+        <p>Hello! I'm Maddila Santhosh Kumar, a Computer Science student passionate about web development and software engineering.</p>
+        <p>This portfolio showcases my skills, projects, and professional journey. Feel free to explore and get to know more about my work.</p>
+      </section>
+      
+      <!-- About -->
+      <section id="about">
+        <h2>About Me</h2>
+        <h3>Who Am I?</h3>
+        <p>I am Maddila Santhosh Kumar, born on 16/07/2005, currently pursuing a B.Tech in CSE, 2nd year (4th sem) at SRM Institute of Science and Technology, Amaravati.</p>
+        <h3>Hobbies</h3>
+        <ul>
+          <li>Coding and learning new technologies</li>
+          <li>Photography and visual storytelling</li>
+          <li>Exploring new places and cultures</li>
+          <li>Playing chess and strategic games</li>
+        </ul>
+      </section>
+
+      <!-- Resume -->
+      <section id="resume">
+        <h2>Resume</h2>
+        <div class="resume-container">
+          <div class="resume-content">
+            <h3>Maddila Santhosh Kumar</h3>
+            <p class="contact-links">
+              Email: <a href="mailto:msanthoshkumar2108@gmail.com">msanthoshkumar2108@gmail.com</a><br>
+              Phone: <a href="tel:+919391220057">+91-9391220057</a><br>
+              Location: Tirupati, India<br>
+              LinkedIn: <a href="https://www.linkedin.com/in/maddilasanthoshkumar/" target="_blank">maddilasanthoshkumar</a><br>
+              GitHub: <a href="https://github.com/MADDILASANTHOSHKUMAR" target="_blank">MADDILASANTHOSHKUMAR</a>
+            </p>
+            <h3>Education</h3>
+            <p><strong>B.Tech in Computer Science and Engineering</strong><br>
+            SRM Institute of Science and Technology, Amaravati<br>
+            July 2023 – May 2027<br>
+            GPA: 8.1 (till 4th sem)</p>
+            
+            <p><strong>Intermediate (MPC)</strong><br>
+            MGM Junior College, Srikalahasthi</p>
+            
+            <h3>Technical Skills</h3>
+            <ul>
+              <li><strong>Web Development:</strong> HTML, CSS, JavaScript, PHP</li>
+              <li><strong>Programming Languages:</strong> Python, C, C++</li>
+              <li><strong>Database:</strong> DBMS, SQL</li>
+              <li><strong>Tools:</strong> Git, VS Code, Browser Dev Tools</li>
+            </ul>
+          </div>
+          <div class="resume-photo">
+            <img src="https://res.cloudinary.com/do2wdot3n/image/upload/v1737541507/ctztabdwg6eqhqisoa9e.jpg" alt="Maddila Santhosh Kumar">
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+          <h4>ATM Machine System</h4>
+          <p>A software application that simulates an ATM, enabling users to perform essential banking operations like withdrawals, deposits, and balance inquiries in a secure environment.</p>
+          <ul>
+            <li>Secure User Authentication – Implements PIN-based login to ensure only authorized users can access their accounts.</li>
+            <li>Transaction Management – Supports secure cash withdrawals, deposits, balance checks, and mini statements.</li>
+            <li>Admin and Maintenance Features – Allows administrators to monitor user transactions, refill cash, and manage user accounts efficiently.</li>
+          </ul>
+        </div>
+        
+        <div class="project">
+          <h4>Train Ticket Reservation System</h4>
+          <p>An online system that enables users to search, book, cancel, and manage train tickets efficiently.</p>
+          <ul>
+            <li>User-Friendly Booking Platform – Provides a smooth interface for train search, ticket booking, and reservation management.</li>
+            <li>Secure Payment and Ticket Control – Integrates secure payment gateways with options to cancel or modify booked tickets.</li>
+            <li>Admin and Operator Controls – Features an admin panel for managing train schedules, seat availability, and generating usage reports.</li>
+          </ul>
+        </div>
+        
+        <div class="project">
+          <h4>Chess with AI</h4>
+          <p>A Python-based desktop application that allows users to play chess against an AI opponent built with strategic move logic and rule validation.</p>
+          <ul>
+            <li>AI Opponent Logic – Uses basic algorithms to simulate human-like gameplay.</li>
+            <li>Valid Move Engine – Implements all chess rules including castling, check, checkmate, and en passant.</li>
+            <li>Interactive UI – Offers a user-friendly interface for players to interact seamlessly.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <h2>Contact Me</h2>
+        <h3>Get in Touch</h3>
+        <p>I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+        <p class="contact-links">
+          Email: <a href="mailto:msanthoshkumar2108@gmail.com">msanthoshkumar2108@gmail.com</a><br>
+          LinkedIn: <a href="https://www.linkedin.com/in/maddilasanthoshkumar/" target="_blank">maddilasanthoshkumar</a><br>
+          GitHub: <a href="https://github.com/MADDILASANTHOSHKUMAR" target="_blank">MADDILASANTHOSHKUMAR</a><br>
+          Phone: <a href="tel:+919391220057">+91-9391220057</a>
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <footer>© 2023 Maddila Santhosh Kumar. All rights reserved.</footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.navbar a');
+      const sections = document.querySelectorAll('.content section');
+      
+      // Show home section by default
+      document.getElementById('home').classList.add('active');
+      
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Get the target section ID
+          const targetId = this.getAttribute('href').substring(1);
+          
+          // Hide all sections
+          sections.forEach(section => {
+            section.classList.remove('active');
+          });
+          
+          // Show the target section
+          document.getElementById(targetId).classList.add('active');
+          
+          // Update active nav link
+          navLinks.forEach(link => link.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Smooth scroll to top of content
+          document.querySelector('.content').scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
